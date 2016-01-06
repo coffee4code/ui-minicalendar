@@ -1,0 +1,80 @@
+$max-width:600px;
+$min-width:400px;
+$min-height: 450px;
+$color-light-grey:#aaa;
+$color-dark-grey:green;
+
+.__ui_minicalendar_center_align{
+	text-align: center;
+}
+.__ui_minicalendar_pull_left{
+	float: left;
+}
+.__ui_minicalendar_pull_right{
+	float: right;
+}
+.__ui_minicalendar_container{
+	max-width: $max-width;
+	min-width: $min-width;
+	margin: auto;
+	height: $min-height;
+
+	.__ui_minicalendar_top {
+		@extend .__ui_minicalendar_center_align;
+		>div {
+			display: inline-block;
+			>span {
+				margin:0 20px;
+			}
+		}
+
+		.__ui_minicalendar_icon {
+			width: 25px;
+			height: 25px;
+			background: green;
+
+			>svg {
+				width: 25px;
+				height: 25px;
+			}
+		}
+		.__ui_minicalendar_icon.__ui_minicalendar_disabled{
+			background: #eee;
+		}
+	}
+
+	.__ui_minicalendar_content {
+		>table {
+			width: 100%;
+
+			tr {
+				td {
+					position: relative;
+					color: $color-light-grey;
+				}
+				td.__ui_minicalendar_cell_fill {
+					color: $color-dark-grey;
+				}
+				td.__ui_minicalendar_cell_has_event {
+					&:before{
+						content: ' ';
+						position: absolute;
+						width: 6px;
+						height: 6px;
+						background: #ED184A;
+						bottom: 6px;
+						border-radius: 50%;
+						margin-left: -3px;
+					}
+				}
+				td.__ui_minicalendar_cell_today {
+					background: #ccc;
+				}
+				td.__ui_minicalendar_cell_active {
+					border-radius: 50%;
+					border: 1px solid blue;
+				}
+			}
+		}
+	}
+}
